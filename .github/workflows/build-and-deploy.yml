@@ -38,7 +38,7 @@ jobs:
 
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
@@ -59,7 +59,7 @@ jobs:
           git checkout .
 
       - name: Deploy site
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: ${{ github.event_name == 'pull_request'}}
         with:
           name: html
