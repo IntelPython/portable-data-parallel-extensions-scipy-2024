@@ -35,7 +35,7 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
 
       - run: npm ci
-      - run: hugo --baseURL https://${REPO_OWNER}.github.io/${REPO_NAME} --minify
+      - run: hugo --baseURL https://IntelPython.github.io/portable-data-parallel-extensions-scipy-2024 --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
