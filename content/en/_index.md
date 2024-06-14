@@ -1,20 +1,35 @@
 ---
-title: Goldydocs
+title: Portable Data-Parallel Python Extensions with oneAPI
 ---
 
-{{< blocks/cover title="Welcome to Goldydocs: A Docsy Example Project!" image_anchor="top" height="full" >}}
-<a class="btn btn-lg btn-primary me-3 mb-4" href="/docs/">
-  Learn More <i class="fas fa-arrow-alt-circle-right ms-2"></i>
-</a>
-<a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
-  Download <i class="fab fa-github ms-2 "></i>
-</a>
-<p class="lead mt-5">Porridge temperature assessment &mdash; in the cloud!</p>
-{{< blocks/link-down color="info" >}}
+{{<blocks/cover title="" image_anchor="top" height="max" color="primary">}}
+  <div class="mx-auto">
+    <div class="col-lg-12">
+      <p class="display-6 mt-5 mb-5" style="font-weight: bold;">Portable Data-Parallel Python Extensions with oneAPI</p>
+      <p></p>        
+      <p class="display-7 pt-5 mb-3">
+      <a href="https://github.com/ndgrigorian" style="color: #50aaf4; font-weight: bold;" target="_blank" rel="noopener">Nikita Grigorian</a> and
+      <a href="https://github.com/oleksandr-pavlyk" style="color: #50aaf4; font-weight: bold;" target="_blank" rel="noopener">Oleksandr Pavlyk</a>
+      </p>
+  </div>
+    <div class="lead text-center">
+      <div class="mx-auto mb-5">
+        <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
+          First<i class="fa-solid fa-question ms-2 "></i>
+        </a>
+        <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
+          Demonstration<i class="fab fa-github ms-2 "></i>
+        </a>
+        <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
+          About<i class="fa-solid fa-address-card ms-2 "></i>
+        </a>
+      </div>
+    </div>
+  </div>
 {{< /blocks/cover >}}
 
 
-{{% blocks/lead color="primary" %}}
+{{% blocks/lead color="secondary" %}}
 Goldydocs provides a single web UI providing visibility into porridge
 temperature, chair size, and bed softness metrics! You can even find out who's
 been eating **your** porridge.

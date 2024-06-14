@@ -1,5 +1,5 @@
-baseURL = "https://example.docsy.dev/"
-title = "Goldydocs"
+baseURL = "https://IntelPython.github.io/portable-data-parallel-extensions-scipy-2024"
+title = "Portable Data-Parallel Python Extensions with oneAPI"
 
 # Language settings
 contentDir = "content/en"
