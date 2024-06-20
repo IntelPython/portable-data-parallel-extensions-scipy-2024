@@ -1,7 +1,7 @@
 baseURL: https://IntelPython.github.io/portable-data-parallel-extensions-scipy-2024
-title: Goldydocs
+title: Portable Data-Parallel Python Extensions with oneAPI
 
-# cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom norsk gu
+# cSpell:ignore goldmark github hugo readingtime docsy subdir lastmod pygments linenos catmullrom gu
 
 # Language settings
 contentDir: content/en
@@ -13,15 +13,13 @@ enableMissingTranslationPlaceholders: true
 enableRobotsTXT: true
 
 # Will give values to .Lastmod etc.
-enableGitInfo: true
+enableGitInfo: false
 
 # Comment out to enable taxonomies in Docsy
 # disableKinds: [taxonomy, taxonomyTerm]
 
 # You can add your own taxonomies
 taxonomies:
-  tag: tags
-  category: categories
 
 # Highlighting config
 pygmentsCodeFences: true
@@ -46,28 +44,9 @@ imaging:
 languages:
   en:
     languageName: English
-    title: Goldydocs
+    title: Portable Data-Parallel Python Extensions with oneAPI
     params:
       description: A Docsy example site
-  # cSpell:disable
-  'no':
-    languageName: Norsk
-    contentDir: content/no
-    title: Gulldoks
-    params:
-      description: Docsy er operativsystem for skyen
-      time_format_default: 02.01.2006
-      time_format_blog: 02.01.2006
-  fa:
-    languageDirection: rtl
-    languageName: "فارسی (Persian)"
-    contentDir: content/fa
-    title: "اسناد گلدی"
-    params:
-      description: "یک نمونه برای پوسته داکسی"
-      time_format_default: 2006.01.02
-      time_format_blog: 2006.01.02
-  # cSpell:enable
 
 markup:
   goldmark:
@@ -86,20 +65,17 @@ markup:
 
 # Comment out if you don't want the "print entire section" link enabled.
 outputs:
-  section: [HTML, print, RSS]
 
 params:
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
-    taxonomyCloud: [tags, categories]
+    taxonomyCloud: []
 
     # If used, must have same length as taxonomyCloud
-    taxonomyCloudTitle: [Tag Cloud, Categories]
+    taxonomyCloudTitle: []
 
     # set taxonomyPageHeader = [] to hide taxonomies on the page headers
-    taxonomyPageHeader: [tags, categories]
-
-  privacy_policy: https://policies.google.com/privacy
+    taxonomyPageHeader: []
 
   # First one is picked as the Twitter card image if not set on page.
   # images: [images/project-illustration.png]
@@ -145,8 +121,8 @@ params:
   prism_syntax_highlighting: false
 
   copyright:
-    authors: Docsy Authors | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
-    from_year: 2018
+    authors: Intel Corp. All Rights Reserved
+    year: 2024
 
   # User interface configuration
   ui:
@@ -157,7 +133,7 @@ params:
     # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
     navbar_translucent_over_cover_disable: false
     # Enable to show the side bar menu in its compact state.
-    sidebar_menu_compact: false
+    sidebar_menu_compact: true
     # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
     sidebar_search_disable: false
 
@@ -166,7 +142,7 @@ params:
     # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
     # add "hide_feedback: true" to the page's front matter.
     feedback:
-      enable: true
+      enable: false
       # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
       'yes': >-
         Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.
@@ -182,32 +158,12 @@ params:
   links:
     # End user relevant links. These will show up on left side of footer and in the community page if you have one.
     user:
-      - name: User mailing list
-        url: https://example.org/mail
-        icon: fa fa-envelope
-        desc: Discussion and help from your fellow users
-      - name: Twitter
-        url: https://example.org/twitter
-        icon: fab fa-twitter
-        desc: Follow us on Twitter to get the latest news!
-      - name: Stack Overflow
-        url: https://example.org/stack
-        icon: fab fa-stack-overflow
-        desc: Practical questions and curated answers
     # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
     developer:
       - name: GitHub
         url: https://github.com/google/docsy
         icon: fab fa-github
         desc: Development takes place here!
-      - name: Slack
-        url: https://example.org/slack
-        icon: fab fa-slack
-        desc: Chat with other project developers
-      - name: Developer mailing list
-        url: https://example.org/mail
-        icon: fa fa-envelope
-        desc: Discuss development issues around the project
 
 module:
   # Uncomment the next line to build and serve using local docsy clone declared in the named Hugo workspace:

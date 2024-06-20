@@ -1,8 +1,8 @@
 ---
-title: Examples
-description: See your project in action!
+title: oneMKL Python extension
+description: A Python extension written using oneMKL interfaces.
 date: 2017-01-05
-weight: 3
+weight: 4
 ---
 
 {{% pageinfo %}}

@@ -1,5 +1,5 @@
-baseURL = "https://example.docsy.dev/"
-title = "Goldydocs"
+baseURL = "https://IntelPython.github.io/portable-data-parallel-extensions-scipy-2024"
+title = "Portable Data-Parallel Python Extensions with oneAPI"
 
 # Language settings
 contentDir = "content/en"
@@ -18,18 +18,18 @@ enableGitInfo = true
 
 # You can add your own taxonomies
 [taxonomies]
-tag = "tags"
-category = "categories"
+tag = ""
+category = ""
 
 [params.taxonomy]
 # set taxonomyCloud = [] to hide taxonomy clouds
-taxonomyCloud = ["tags", "categories"]
+taxonomyCloud = []
 
 # If used, must have same length as taxonomyCloud
-taxonomyCloudTitle = ["Tag Cloud", "Categories"]
+taxonomyCloudTitle = []
 
 # set taxonomyPageHeader = [] to hide taxonomies on the page headers
-taxonomyPageHeader = ["tags", "categories"]
+taxonomyPageHeader = []
 
 # Highlighting config
 pygmentsCodeFences = true
@@ -59,25 +59,6 @@ title = "Goldydocs"
 [languages.en.params]
 description = "A Docsy example site"
 
-[languages.no]
-languageName ="Norsk"
-contentDir = "content/no"
-title = "Gulldoks"
-[languages.no.params]
-description = "Docsy er operativsystem for skyen"
-time_format_default = "02.01.2006"
-time_format_blog = "02.01.2006"
-
-[languages.fa]
-languageDirection = "rtl"
-languageName ="فارسی"
-contentDir = "content/fa"
-title = "اسناد گلدی"
-[languages.fa.params]
-description = "یک نمونه برای پوسته داکسی"
-time_format_default = "2006.01.02"
-time_format_blog = "2006.01.02"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser.attribute]
@@ -92,7 +73,7 @@ time_format_blog = "2006.01.02"
 
 # Comment out if you don't want the "print entire section" link enabled.
 [outputs]
-section = ["HTML", "print", "RSS"]
+# section = ["HTML", "print", "RSS"]
 
 # Everything below this are Site Params
 
@@ -163,7 +144,7 @@ sidebar_search_disable = false
 # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
 # add "hide_feedback: true" to the page's front matter.
 [params.ui.feedback]
-enable = true
+enable = false
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
 yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
 no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
