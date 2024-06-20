@@ -1,7 +1,7 @@
 ---
-title: Contribution Guidelines
-description: How to contribute to the docs
-weight: 10
+title: KDE DPC++ example
+description: KDE (kernel density estimation) example using SYCL and DPC++.
+weight: 2
 ---
 
 {{% pageinfo %}}
