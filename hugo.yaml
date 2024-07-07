@@ -77,6 +77,10 @@ params:
     # set taxonomyPageHeader = [] to hide taxonomies on the page headers
     taxonomyPageHeader: []
 
+params:
+  katex:
+    enable: true
+
   # First one is picked as the Twitter card image if not set on page.
   # images: [images/project-illustration.png]
 

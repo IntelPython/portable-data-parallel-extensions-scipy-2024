@@ -23,9 +23,6 @@ title: Portable Data-Parallel Python Extensions with oneAPI
         <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
           Demonstration<i class="fab fa-github ms-2 "></i>
         </a>
-        <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/google/docsy-example">
-          About<i class="fa-solid fa-address-card ms-2 "></i>
-        </a>
       </div>
     </div>
   </div>
