@@ -66,7 +66,7 @@ int main(void) {
 
 The device where the kernel functions is executed is controlled by a device selector function, ``sycl::default_selector_v``.
 The default selector assigns scores to every device recognized by the runtime, and selects the one with the highest score.
-The list of devices recognized by the DPC++ runtime can be obtained by running ``sycl-ls`` command.
+A list of devices recognized by the DPC++ runtime can be obtained by running ``sycl-ls`` command.
 
 A user of SYCL application compiled with DPC++ may restrict the set of devices discoverable by the runtime using
 ``ONEAPI_DEVICE_SELECTOR`` environment variable. For example:
