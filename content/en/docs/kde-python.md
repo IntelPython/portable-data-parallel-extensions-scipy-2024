@@ -29,7 +29,9 @@ For illustration purpose, here is a sample extension source code:
 #include <vector>
 
 sycl::event
-py_foo(dpctl::tensor::usm_ndarray inp, dpctl::tensor::usm_ndarray out, const std::vector<sycl::event> &deps) {
+py_foo(dpctl::tensor::usm_ndarray inp,
+       dpctl::tensor::usm_ndarray out,
+       const std::vector<sycl::event> &deps) {
     // validation steps skipped
 
     // Execution queue is the queue associated with input arrays
