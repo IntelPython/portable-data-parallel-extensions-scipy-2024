@@ -28,4 +28,22 @@ The `pybind11` castings discussed in the previous section enable us to write a s
 
 An example of a Python extension `"mkl_interface_ext"` that uses `oneMKL` calls to implement a QR decomposition can be found in `"steps/mkl_interface"` folder (see [README](steps/mkl_interface/README.md)).
 
+The folder executes the tests found in `"steps/mkl_interface/tests"` as well as running a larger benchmark which compares Numpy's `linalg.qr` (for reference) to the extension's implementation:
+
+```bash
+$ python run.py
+Using device NVIDIA GeForce GT 1030
+================================================= test session starts ==================================================
+collected 8 items
+
+tests/test_qr.py ........                                                                                        [100%]
+
+================================================== 8 passed in 0.45s ===================================================
+QR decomposition for matrix of size = (3000, 3000)
+Result agreed.
+qr took 0.016026005148887634 seconds
+np.linalg.qr took 0.5165981948375702 seconds
+
+```
+
 `oneMKL` can be built for a variety of backends (see [oneMKL interfaces README](https://github.com/oneapi-src/oneMKL?tab=readme-ov-file#oneapi-math-kernel-library-onemkl-interfaces)). The example extension provides instructions for compiling for Intel, CUDA, and AMD, but the [`portBLAS`](https://github.com/codeplaysoftware/portBLAS) and [`portFFT`](https://github.com/codeplaysoftware/portFFT) backends are worth mentioning that. While the routines in `"mkl_interface_ext"` are not supported, these libraries are written in pure SYCL, and are therefore highly portable: they can offload to CPU, Intel, CUDA, and AMD devices. They are also open-source.

@@ -105,7 +105,7 @@ section can be found in `"steps/sycl_python_extension"` folder (see [README](ste
 The folder contains comparison between `dpctl`-based implementation of the KDE implementation following the NumPy
 implementation [above](#kde_numpy) and the dedicated C++ code:
 
-```
+```bash
 KDE for n_sample = 1000000, n_est = 17, n_dim = 7, h = 0.05
 Result agreed.
 kde_dpctl took 0.3404452269896865 seconds
