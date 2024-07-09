@@ -5,7 +5,7 @@ date: 2024-07-02
 weight: 3
 ---
 
-Since SYCL builds on C++, we are going to use `pybind11` project to generate Python extension.
+Since SYCL builds on C++, we are going to use the `pybind11` project to generate a Python extension.
 We also need Python objects to carry USM allocations of input and output data, such as `dpctl` ([Data Parallel Control](https://github.com/IntelPython/dpctl.git) Python package). The `dpctl` package also provides Python objects corresponding to DPC++ runtime objects:
 
 | Python object         | SYCL C++ object   |
@@ -15,9 +15,9 @@ We also need Python objects to carry USM allocations of input and output data, s
 | ``dpctl.SyclContext`` | ``sycl::context`` |
 | ``dpctl.SyclEvent``   | ``sycl::event``   |
 
-`dpctl` provides integration with `pybind11` supporting castings between `dpctl` Python objects and corresponding C++ SYCL classes listed in the table above. Furthermore, the integration provides C++ class ``dpctl::tensor::usm_ndarray`` which derives from ``pybind11::object``.
-It stores `dpctl.tensor.usm_ndarray` object and provides methods to query its attributes, such as data pointer, dimensionality, shape, strides
-and elemental type information.
+`dpctl` provides integration with `pybind11` supporting castings between `dpctl` Python objects and corresponding C++ SYCL classes listed in the table above. Furthermore, the integration provides the C++ class ``dpctl::tensor::usm_ndarray`` which derives from ``pybind11::object``.
+It stores the `dpctl.tensor.usm_ndarray` object and provides methods to query its attributes, such as data pointer, dimensionality, shape, strides
+and elemental type information. Underlying `dpctl.tensor.usm_ndarray` is a SYCL unified shared memory (USM) allocation. See the [SYCL standard](https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#sec:usm) or [dpctl.memory documentation](https://intelpython.github.io/dpctl/latest/api_reference/dpctl/memory.html#dpctl-memory-pyapi) for more details.
 
 For illustration purpose, here is a sample extension source code:
 
