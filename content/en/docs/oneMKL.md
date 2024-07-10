@@ -37,7 +37,7 @@ The `pybind11` castings discussed in the previous section enable us to write a s
 
 An example of a Python extension `"mkl_interface_ext"` that uses `oneMKL` calls to implement a QR decomposition can be found in [`"steps/mkl_interface"`](https://github.com/IntelPython/example-portable-data-parallel-extensions/tree/main/steps/mkl_interface) folder (see [README](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/mkl_interface/README.md)).
 
-The folder executes the tests found in `"steps/mkl_interface/tests"` as well as running a larger benchmark which compares Numpy's `linalg.qr` (for reference) to the extension's implementation:
+The folder executes the tests found in [`"steps/mkl_interface/tests"`](https://github.com/IntelPython/example-portable-data-parallel-extensions/tree/main/steps/mkl_interface/tests) as well as running a larger benchmark which compares Numpy's `linalg.qr` (for reference) to the extension's implementation:
 
 ```bash
 $ python run.py
