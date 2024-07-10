@@ -11,7 +11,7 @@ QR factorization is a common routine in more optimized LAPACK libraries, so rath
 
 Since `dpctl.tensor.usm_ndarray` is a Python object with an underlying USM allocation, it is possible to write extensions which wrap `oneAPI Math Kernel Library Interfaces` ([oneMKL Interfaces](https://github.com/oneapi-src/oneMKL)) USM routines and then call them on the `dpctl.tensor.usm_ndarray` from Python. These low-level routines can greatly improve the performance of an extension.
 
-`oneMKL Interfaces` can be built to dispatch to a variety of backends including `cuBLAS` and `rocBLAS` (see [oneMKL interfaces README](https://github.com/oneapi-src/oneMKL?tab=readme-ov-file#oneapi-math-kernel-library-onemkl-interfaces)). The [`portBLAS`](https://github.com/codeplaysoftware/portBLAS) backend is also notable as it is open-source and written in pure SYCL.
+`oneMKL Interfaces` can be built to dispatch to a variety of backends including `cuBLAS` and `rocBLAS` (see [oneMKL Interfaces README](https://github.com/oneapi-src/oneMKL?tab=readme-ov-file#oneapi-math-kernel-library-onemkl-interfaces)). The [`portBLAS`](https://github.com/codeplaysoftware/portBLAS) backend is also notable as it is open-source and written in pure SYCL.
 
 `oneMKL` routines are essentially wrappers for the same routine in an underlying backend library, depending on the targeted device. This means that the same code can be used for NVidia, AMD, and Intel devices, making it highly portable.  
 
