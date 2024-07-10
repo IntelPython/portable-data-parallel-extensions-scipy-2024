@@ -5,7 +5,7 @@ date: 2024-07-02
 weight: 3
 ---
 
-Since SYCL builds on C++, we are going to use `pybind11` project to generate Python extension.
+Since SYCL builds on C++, we are going to use the `pybind11` project to generate a Python extension.
 We also need Python objects to carry USM allocations of input and output data, such as `dpctl` ([Data Parallel Control](https://github.com/IntelPython/dpctl.git) Python package). The `dpctl` package also provides Python objects corresponding to DPC++ runtime objects:
 
 | Python object         | SYCL C++ object   |
@@ -15,9 +15,9 @@ We also need Python objects to carry USM allocations of input and output data, s
 | ``dpctl.SyclContext`` | ``sycl::context`` |
 | ``dpctl.SyclEvent``   | ``sycl::event``   |
 
-`dpctl` provides integration with `pybind11` supporting castings between `dpctl` Python objects and corresponding C++ SYCL classes listed in the table above. Furthermore, the integration provides C++ class ``dpctl::tensor::usm_ndarray`` which derives from ``pybind11::object``.
-It stores `dpctl.tensor.usm_ndarray` object and provides methods to query its attributes, such as data pointer, dimensionality, shape, strides
-and elemental type information.
+`dpctl` provides integration with `pybind11` supporting castings between `dpctl` Python objects and corresponding C++ SYCL classes listed in the table above. Furthermore, the integration provides the C++ class ``dpctl::tensor::usm_ndarray`` which derives from ``pybind11::object``.
+It stores the `dpctl.tensor.usm_ndarray` object and provides methods to query its attributes, such as data pointer, dimensionality, shape, strides
+and elemental type information. Underlying `dpctl.tensor.usm_ndarray` is a SYCL unified shared memory (USM) allocation. See the [SYCL standard](https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#sec:usm) or [dpctl.memory documentation](https://intelpython.github.io/dpctl/latest/api_reference/dpctl/memory.html#dpctl-memory-pyapi) for more details.
 
 For illustration purpose, here is a sample extension source code:
 
@@ -29,7 +29,9 @@ For illustration purpose, here is a sample extension source code:
 #include <vector>
 
 sycl::event
-py_foo(dpctl::tensor::usm_ndarray inp, dpctl::tensor::usm_ndarray out, const std::vector<sycl::event> &deps) {
+py_foo(dpctl::tensor::usm_ndarray inp,
+       dpctl::tensor::usm_ndarray out,
+       const std::vector<sycl::event> &deps) {
     // validation steps skipped
 
     // Execution queue is the queue associated with input arrays
@@ -98,12 +100,12 @@ of the host task a chance at execution.
 Of course, if USM memory is not managed by Python, it may be possible to avoid using GIL altogether.
 
 An example of Python extension `"kde_sycl_ext"` that exposes kernel density estimation code from previous
-section can be found in `"steps/sycl_python_extension"` folder (see [README](steps/sycl_python_extension/README.md)).
+section can be found in [`"steps/sycl_python_extension"`](https://github.com/IntelPython/example-portable-data-parallel-extensions/tree/main/steps/sycl_python_extension) folder (see [README](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/sycl_python_extension/README.md)).
 
 The folder contains comparison between `dpctl`-based implementation of the KDE implementation following the NumPy
 implementation [above](#kde_numpy) and the dedicated C++ code:
 
-```
+```bash
 KDE for n_sample = 1000000, n_est = 17, n_dim = 7, h = 0.05
 Result agreed.
 kde_dpctl took 0.3404452269896865 seconds
