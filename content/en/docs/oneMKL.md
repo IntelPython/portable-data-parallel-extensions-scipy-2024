@@ -11,6 +11,10 @@ QR factorization is a common routine in more optimized LAPACK libraries, so rath
 
 Since `dpctl.tensor.usm_ndarray` is a Python object with an underlying USM allocation, it is possible to write extensions which wrap `oneAPI Math Kernel Library Interfaces` ([oneMKL Interfaces](https://github.com/oneapi-src/oneMKL)) USM routines and then call them on the `dpctl.tensor.usm_ndarray` from Python. These low-level routines can greatly improve the performance of an extension.
 
+`oneMKL Interfaces` can be built to dispatch to a variety of backends including `cuBLAS` and `rocBLAS` (see [oneMKL interfaces README](https://github.com/oneapi-src/oneMKL?tab=readme-ov-file#oneapi-math-kernel-library-onemkl-interfaces)). The [`portBLAS`](https://github.com/codeplaysoftware/portBLAS) backend is also notable as it is open-source and written in pure SYCL.
+
+`oneMKL` routines are essentially wrappers for the same routine in an underlying backend library, depending on the targeted device. This means that the same code can be used for NVidia, AMD, and Intel devices, making it highly portable.  
+
 Looking to the `oneMKL` documentation on [`geqrf`](https://spec.oneapi.io/versions/latest/elements/oneMKL/source/domains/lapack/geqrf.html#geqrf-usm-version):
 
 ```cpp
@@ -49,5 +53,3 @@ Result agreed.
 qr took 0.016026005148887634 seconds
 np.linalg.qr took 0.5165981948375702 seconds
 ```
-
-`oneMKL` can be built for a variety of backends (see [oneMKL interfaces README](https://github.com/oneapi-src/oneMKL?tab=readme-ov-file#oneapi-math-kernel-library-onemkl-interfaces)). The example extension provides instructions for compiling for Intel, CUDA, and AMD, but the [`portBLAS`](https://github.com/codeplaysoftware/portBLAS) and [`portFFT`](https://github.com/codeplaysoftware/portFFT) backends are worth mentioning that. While the routines in `"mkl_interface_ext"` are not supported, these libraries are written in pure SYCL, and are therefore highly portable: they can offload to CPU, Intel, CUDA, and AMD devices. They are also open-source.
