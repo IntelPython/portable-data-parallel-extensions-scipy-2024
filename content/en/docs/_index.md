@@ -11,3 +11,5 @@ by [Nikita Grigorian](https://github.com/ndgrigorian) and [Oleksandr Pavlyk](htt
 This poster is intended to introduce writing portable data-parallel Python extensions using oneAPI.
 
 We present several examples, starting with the basics of initializing a USM (unified shared memory) array, then a KDE (kernel density estimation) with pure DPC++/Sycl, then a KDE Python extension, and finally how to write a portable Python extension which uses oneMKL.
+
+The examples can be found [here](https://github.com/IntelPython/example-portable-data-parallel-extensions).

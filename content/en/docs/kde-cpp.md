@@ -61,7 +61,7 @@ for further summation by another kernel operating in a similar fashion.
 ```
 
 Such an approach, known as tree reduction, is implemented in ``kernel_density_esimation_temps`` function found in
-``"steps/kernel_density_estimation_cpp/kde.hpp"``.
+[``"steps/kernel_density_estimation_cpp/kde.hpp"``](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/kernel_density_estimation_cpp/kde.hpp).
 
 Use of temporary allocation can be avoided if each work-item atomically adds the value of the local sum to the
 appropriate zero-initialized location in the output array, as in implementation ``kernel_density_estimation_atomic_ref``
@@ -119,10 +119,10 @@ in the work-group without accessing the global memory. This could be done effici
 ```
 
 Complete implementation can be found in ``kernel_density_estimation_work_group_reduce_and_atomic_ref`` function
-in ``"steps/kernel_density_estimation_cpp/kde.hpp"``.
+in [``"steps/kernel_density_estimation_cpp/kde.hpp"``](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/kernel_density_estimation_cpp/kde.hpp).
 
-These implementations are called from C++ application ``"steps/kernel_density_estimation_cpp/app.cpp"``, which
+These implementations are called from C++ application [``"steps/kernel_density_estimation_cpp/app.cpp"``](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/kernel_density_estimation_cpp/app.cpp), which
 samples data uniformly distributed over unit cuboid, and estimates the density using Kernel Density Estimation
 and spherically symmetric multivariate Gaussian probability density function as the kernel.
 
-The application can be built using `CMake`, or `Meson`, please refer to [README](steps/kernel_density_estimation_cpp/README.md) document in that folder.
+The application can be built using `CMake`, or `Meson`, please refer to [README](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/kernel_density_estimation_cpp/README.md) document in that folder.

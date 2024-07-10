@@ -100,7 +100,7 @@ of the host task a chance at execution.
 Of course, if USM memory is not managed by Python, it may be possible to avoid using GIL altogether.
 
 An example of Python extension `"kde_sycl_ext"` that exposes kernel density estimation code from previous
-section can be found in `"steps/sycl_python_extension"` folder (see [README](steps/sycl_python_extension/README.md)).
+section can be found in [`"steps/sycl_python_extension"`](https://github.com/IntelPython/example-portable-data-parallel-extensions/tree/main/steps/sycl_python_extension) folder (see [README](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/sycl_python_extension/README.md)).
 
 The folder contains comparison between `dpctl`-based implementation of the KDE implementation following the NumPy
 implementation [above](#kde_numpy) and the dedicated C++ code:

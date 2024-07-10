@@ -5,9 +5,14 @@ date: 2024-07-02
 weight: 4
 ---
 
-Since `dpctl.tensor.usm_ndarray` is a Python object with an underlying USM allocation, it is possible to write extensions which wrap `oneAPI Math Kernel Library Interfaces` ([oneMKL Interfaces](https://github.com/oneapi-src/oneMKL)) USM routines and then call them on the `dpctl.tensor.usm_ndarray` from Python. These low-level routines have the potential to greatly improve the performance of extensions.
+Given a matrix \\(A\\), the QR decomposition of \\(A\\) is defined as the decomposition of \\(A\\) into the product of matrices \\(Q\\) and \\(R\\) such that \\(Q\\) is orthonormal and \\(R\\) is an upper-triangular.
 
-For an example routine from the `oneMKL` documentation, take [`geqrf`](https://spec.oneapi.io/versions/latest/elements/oneMKL/source/domains/lapack/geqrf.html#geqrf-usm-version):
+QR factorization is a common routine in more optimized LAPACK libraries, so rather than write and implement an algorithm ourselves, it would be preferable to find a suitable library routine.
+
+Since `dpctl.tensor.usm_ndarray` is a Python object with an underlying USM allocation, it is possible to write extensions which wrap `oneAPI Math Kernel Library Interfaces` ([oneMKL Interfaces](https://github.com/oneapi-src/oneMKL)) USM routines and then call them on the `dpctl.tensor.usm_ndarray` from Python. These low-level routines can greatly improve the performance of an extension.
+
+Looking to the `oneMKL` documentation on [`geqrf`](https://spec.oneapi.io/versions/latest/elements/oneMKL/source/domains/lapack/geqrf.html#geqrf-usm-version):
+
 ```cpp
 namespace oneapi::mkl::lapack {
   cl::sycl::event geqrf(cl::sycl::queue &queue,
@@ -26,7 +31,7 @@ This general format (``sycl::queue``, arguments, and a vector of ``sycl::event``
 
 The `pybind11` castings discussed in the previous section enable us to write a simple wrapper function for this routine with ``dpctl::tensor::usm_ndarray`` inputs and outputs, so long as we take the same precautions to avoid deadlocks. As a result, we can write the extension in much the same way as the `"kde_sycl_ext"` extension in the previous chapter.
 
-An example of a Python extension `"mkl_interface_ext"` that uses `oneMKL` calls to implement a QR decomposition can be found in `"steps/mkl_interface"` folder (see [README](steps/mkl_interface/README.md)).
+An example of a Python extension `"mkl_interface_ext"` that uses `oneMKL` calls to implement a QR decomposition can be found in [`"steps/mkl_interface"`](https://github.com/IntelPython/example-portable-data-parallel-extensions/tree/main/steps/mkl_interface) folder (see [README](https://github.com/IntelPython/example-portable-data-parallel-extensions/blob/main/steps/mkl_interface/README.md)).
 
 The folder executes the tests found in `"steps/mkl_interface/tests"` as well as running a larger benchmark which compares Numpy's `linalg.qr` (for reference) to the extension's implementation:
 
@@ -43,7 +48,6 @@ QR decomposition for matrix of size = (3000, 3000)
 Result agreed.
 qr took 0.016026005148887634 seconds
 np.linalg.qr took 0.5165981948375702 seconds
-
 ```
 
 `oneMKL` can be built for a variety of backends (see [oneMKL interfaces README](https://github.com/oneapi-src/oneMKL?tab=readme-ov-file#oneapi-math-kernel-library-onemkl-interfaces)). The example extension provides instructions for compiling for Intel, CUDA, and AMD, but the [`portBLAS`](https://github.com/codeplaysoftware/portBLAS) and [`portFFT`](https://github.com/codeplaysoftware/portFFT) backends are worth mentioning that. While the routines in `"mkl_interface_ext"` are not supported, these libraries are written in pure SYCL, and are therefore highly portable: they can offload to CPU, Intel, CUDA, and AMD devices. They are also open-source.
