@@ -5,7 +5,7 @@ date: 2024-07-02
 weight: 4
 ---
 
-Given a matrix \\(A\\), the QR decomposition of \\(A\\) is defined as the decomposition of \\(A\\) into the product of matrices \\(Q\\) and \\(R\\) such that \\(Q\\) is orthonormal and \\(R\\) is an upper-triangular.
+Given a matrix \\(A\\), the QR decomposition of \\(A\\) is defined as the decomposition of \\(A\\) into the product of matrices \\(Q\\) and \\(R\\) such that \\(Q\\) is orthonormal and \\(R\\) is upper-triangular.
 
 QR factorization is a common routine in more optimized LAPACK libraries, so rather than write and implement an algorithm ourselves, it would be preferable to find a suitable library routine.
 
