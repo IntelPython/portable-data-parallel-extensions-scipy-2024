@@ -31,7 +31,7 @@ namespace oneapi::mkl::lapack {
 }
 ```
 
-This general format (``sycl::queue``, arguments, and a vector of ``sycl::event``s) is more or less the same throughout the `oneMKL` USM routine.
+This general format (``sycl::queue``, arguments, and a vector of ``sycl::event``s) is more or less the same throughout the `oneMKL` USM routines.
 
 The `pybind11` castings discussed in the previous section enable us to write a simple wrapper function for this routine with ``dpctl::tensor::usm_ndarray`` inputs and outputs, so long as we take the same precautions to avoid deadlocks. As a result, we can write the extension in much the same way as the `"kde_sycl_ext"` extension in the previous chapter.
 
