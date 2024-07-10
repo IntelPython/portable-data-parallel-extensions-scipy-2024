@@ -18,10 +18,10 @@ title: Portable Data-Parallel Python Extensions with oneAPI
     <div class="lead text-center">
       <div class="mx-auto mb-5">
         <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://IntelPython.github.io/portable-data-parallel-extensions-scipy-2024/docs/">
-          First<i class="fa-solid fa-question ms-2 "></i>
+          Get Started<i class="fa-solid fa-play ms-2"></i>
         </a>
         <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://github.com/IntelPython/example-portable-data-parallel-extensions">
-          Demonstration<i class="fab fa-github ms-2 "></i>
+          Examples<i class="fab fa-github ms-2 "></i>
         </a>
       </div>
     </div>
